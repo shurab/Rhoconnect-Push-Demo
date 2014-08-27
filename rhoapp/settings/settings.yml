@@ -1,0 +1,28 @@
+:sources:
+
+:development:
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292
+  :push_server: http://someappname@localhost:8675/
+  :api_token: my-rhoconnect-token
+  :push_notify: true
+  :gcm_api_key: AIzaSyANZO6psbeXLHvU88InbDnR6Zd_vZMWUZ8
+  :iphonecertfile: settings/push-cert.pem
+  :iphonepassphrase: #=> empty or put password for you2r certificate
+  :iphoneserver: gateway.sandbox.push.apple.com
+  :iphoneport: 2195
+:test:
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292
+  :push_server: http://someappname@localhost:8675/
+  :api_token: my-rhoconnect-token
+  :push_notify: true
+  :gcm_api_key: AIzaSyANZO6psbeXLHvU88InbDnR6Zd_vZMWUZ8
+:production:
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292
+  :push_server: http://someappname@localhost:8675/
+  :push_notify: true

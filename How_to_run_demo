@@ -1,0 +1,76 @@
+###
+#1) rhoconnect-push
+rhoconnect-push start -d 3
+
+###
+#2) rhoconnect server
+cd ~/workspace/rhoconnect-push-demo/rhoapp
+
+rhoconnect flushdb
+ OR
+redis-cli flushdb
+
+rhoconnect start
+
+###
+#3) rails
+cd /Users/alexb/workspace/rhoconnect-push-demo/rhostore-with-plugin
+rails server
+
+
+#4) rhodes mobile client
+rvm use 1.9.3
+cd /Users/alexb/workspace/rhoconnect-push-demo/store-manager
+rake clean:android
+rake device:android:debug
+
+# Start emulator
+android avd (and start myAVD)
+
+# Install push service and rhodes app there
+adb -e install rhoconnect-push-service.apk
+adb -e install bin/target/android/store-rhodes-debug.apk
+
+###
+# rhodes logs
+adb -e logcat
+
+# This will create a file named "logcat.txt" in your current directory.  The -d option indicates that # you are dumping the current contents and then exiting.  If you do not use this option new lines of
+# LogCat will be appended to the file, which may be useful.
+
+adb -e logcat -d > logcat.txt
+adb -e logcat  > logcat.txt
+
+
+### Monitoring ports
+
+sudo ngrep -d lo0 -W byline port 8675
+sudo ngrep -d lo0 -W byline port 9292
+
+
+------------------------------------------
+=>  console/device/.../alexb
+
+Attributes
+----------
+rho__id           dc0f5fd22f194dad81afc8b4963dc7ab
+device_type       ANDROID
+device_push_type  rhoconnect_push
+device_pin        a55f7408-603f-4968-8bd1-f10874995f6d:42001ea2a5481daac99527e2166f293d
+device_port       100
+phone_id          12316995-b125-3e49-8dbe-26359138486e
+user_id           alexb
+last_sync         2013-06-28T12:05:12-07:00
+app_id            application
+
+Attributes
+----------
+rho__id 7e76afc5d44644b3b2ca2f339b1e1786
+device_type APPLE
+device_pin  50876a050609b8ec149835c09115a78a034aab41484164cfe4d2d2484209737a
+device_port 100
+user_id alexb
+last_sync 2013-06-28T16:18:09-07:00
+app_id  application
+
+
