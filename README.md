@@ -61,7 +61,13 @@ syncserver = 'http://192.168.1.8:9292'
     - def registration_callback method
     - def push_callback
 
-6) Start android AVD/attach android phone and copy there
+6) Check that build.yml has there extensiions:
+
+```
+extensions: ["rhoconnect-client", "rhoconnect-push"]
+```
+
+7) Start android AVD/attach android phone and copy these apks there
 
 ```
   adb -e install ../rhoconnect-push-service.apk
@@ -69,3 +75,4 @@ syncserver = 'http://192.168.1.8:9292'
 ```
 
 7) Run it
+

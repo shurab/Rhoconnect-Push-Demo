@@ -1,4 +1,7 @@
+#Sources
 :sources:
+  Product:
+    :poll_interval: 5
 
 :development:
   :licensefile: settings/license.key
