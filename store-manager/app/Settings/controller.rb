@@ -135,8 +135,17 @@ class SettingsController < Rho::RhoController
     puts
 
     WebView.navigate Rho::RhoConfig.start_path
+
+    # {"rho_callback"=>"1", "vibrate"=>"2000", "sound"=>"welcome.mp3", "alert"=>"push message", "do_sync"=>["Product"]}
     # Show 'alert' popup window
-    Rho::Notification.showPopup({'message' => @params['alert'], 'buttons' =>['OK']})
+    if @params['alert']
+      Rho::Notification.showPopup({'message' => @params['alert'], 'buttons' =>['OK']})
+    end
+    # {"rho_callback"=>"1", "vibrate"=>"", "do_sync"=>["Product"]}
+    if @params['do_sync']
+      Rho::RhoConnectClient.doSync
+      Rho::Notification.showPopup({'message' => "Your model is updated", 'buttons' =>['OK']})
+    end
   end
 
 end
