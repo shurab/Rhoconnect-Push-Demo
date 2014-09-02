@@ -9,6 +9,16 @@ Sample applications for my RhoConnect Push presentation:
 ## Docs
 <http://docs.rhomobile.com/rhoconnect/push>
 
+## rhoapp confguration: file setting/setting.yml
+
+```
+  :push_server: http://someappname@localhost:8675/
+  :push_notify: true
+```
+
+:push_notify: means to trigger push automatically after updating rhoconnect data. Any updated on backend
+are noticed by plugin and it modifies rhoconnect source data.
+
 ## How to create store-manager
 
 1) Create app
@@ -58,7 +68,7 @@ syncserver = 'http://192.168.1.8:9292'
 5) Edit app/Settings/controller.rb
 
     - Register for push service in login_callback
-    - def registration_callback method
+    - def registration_callback method (optional)
     - def push_callback
 
 6) Check that build.yml has there extensiions:
