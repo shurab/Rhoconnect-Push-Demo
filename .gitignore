@@ -3,5 +3,8 @@ logs
 README
 TODO
 .DS_Store
+.DS_Store?
+._*
+launch_droid_screen.sh
 
 
